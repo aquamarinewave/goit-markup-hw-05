@@ -23,10 +23,11 @@
   --submain-bg-color: #f5f4fa;
   --dark-bg-color: #2f303a;
   --soc-bg-color: rgba(255, 255, 255, 0.1);
-  --hero-bg: #c4c4c4;
+  --hero-bg-color: #c4c4c4;
   --hero-bg-overlay: rgba(47, 48, 58, 0.4);
   --we-do-bg: rgba(47, 48, 58, 0.8);
   --portfolio-bg-desc: rgba(33, 150, 243, 0.9);
+  --backdriop-bg-color: rgba(0, 0, 0, 0.2);
   /* actions */
   --active-color: #2196f3;
   --active-bg-color: #2196f3;
@@ -231,7 +232,7 @@ img {
   padding: 200px 0;
   background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
     url('../images/hero-background.jpg');
-  background-color: var(--hero-bg);
+  background-color: var(--hero-bg-color);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -653,4 +654,64 @@ img {
   line-height: 1.88;
   letter-spacing: 0.03em;
   color: var(--submain-text-color);
+}
+
+/* Modal */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--backdriop-bg-color);
+  z-index: 100;
+  transition: visibility 1000ms, opacity 1000ms;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 528px;
+  height: 581px;
+
+  background: var(--main-bg-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.modal-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 30px;
+  height: 30px;
+  padding: 0;
+
+  color: var(--dark-text-color);
+  background: var(--main-bg-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.close-btn-icon {
+  fill: currentColor;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
 }
