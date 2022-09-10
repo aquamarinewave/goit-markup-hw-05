@@ -25,6 +25,8 @@
   --soc-bg-color: rgba(255, 255, 255, 0.1);
   --hero-bg: #c4c4c4;
   --hero-bg-overlay: rgba(47, 48, 58, 0.4);
+  --we-do-bg: rgba(47, 48, 58, 0.8);
+  --portfolio-bg-desc: rgba(33, 150, 243, 0.9);
   /* actions */
   --active-color: #2196f3;
   --active-bg-color: #2196f3;
@@ -132,6 +134,10 @@ img {
   gap: 50px;
 }
 
+.menu-item {
+  position: relative;
+}
+
 .menu-link {
   display: block;
   padding-top: 32px;
@@ -140,6 +146,12 @@ img {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--main-text-color);
+  transition-property: color, background-color, shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: color, background-color, shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .current-text {
@@ -149,6 +161,17 @@ img {
 .menu-link:hover,
 .menu-link:focus {
   color: var(--active-color);
+}
+
+.current-text::after {
+  content: '';
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-bg-color);
+  border-radius: 2px;
 }
 
 .header-contacts {
@@ -166,6 +189,9 @@ img {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--submain-text-color);
+  transition-property: color, background-color, shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-contacts-link:hover,
@@ -241,6 +267,9 @@ img {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   cursor: pointer;
+  transition-property: color, background-color, shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-btn:hover,
@@ -294,10 +323,26 @@ img {
 .we-do-list {
   display: flex;
   gap: 30px;
+  position: relative;
 }
 
 .we-do-img {
   width: 100%;
+}
+
+.we-do-header {
+  width: 370px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--light-text-color);
+  background-color: var(--we-do-bg);
+  padding: 27px 0;
+  position: absolute;
+  bottom: 0;
 }
 
 /* Our team */
@@ -361,6 +406,9 @@ img {
   width: 44px;
   height: 44px;
   border-radius: 50%;
+  transition-property: color, background-color, shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-soc-link {
@@ -409,6 +457,9 @@ img {
   color: var(--icon-color);
   border: 1px solid var(--icon-color);
   border-radius: 4px;
+  transition-property: color, background-color, shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-list-link:hover,
@@ -446,6 +497,9 @@ img {
   line-height: 1.71;
   letter-spacing: 0.03em;
   color: var(--sub-text-color-trans);
+  transition-property: color, background-color, shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-link:hover,
@@ -505,7 +559,11 @@ img {
   cursor: pointer;
   border: none;
   border-radius: 4px;
+  transition-property: color, background-color, shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 /* 
 .current-bg {
   color: var(--light-text-color);
@@ -536,12 +594,40 @@ img {
 
 .portfolio-link {
   display: block;
+  transition-property: color, background-color, shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.img-container {
+  position: relative;
+  overflow: hidden;
 }
 
 .portfolio-link:hover,
 .portfolio-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.portfolio-overlay-desc {
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 63px 24px;
+  color: var(--light-text-color);
+  background-color: var(--portfolio-bg-desc);
+  visibility: hidden;
+  transition: 0.3s linear;
+  transform: translateY(100%);
+}
+
+.portfolio-link:hover .portfolio-overlay-desc {
+  transform: translateY(0);
+  visibility: visible;
 }
 
 .item-desc {
